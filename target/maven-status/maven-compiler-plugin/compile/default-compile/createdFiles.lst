@@ -1,0 +1,9 @@
+online/sis_ucb/meetings_service/model/MeetingListResponse.class
+online/sis_ucb/meetings_service/controller/MeetingController.class
+online/sis_ucb/meetings_service/MeetingsServiceApplication.class
+online/sis_ucb/meetings_service/config/AppConfig.class
+online/sis_ucb/meetings_service/model/MeetingInvitee.class
+online/sis_ucb/meetings_service/service/ZoomMeetingService.class
+online/sis_ucb/meetings_service/oauth/ZoomOAuthService.class
+online/sis_ucb/meetings_service/model/Meeting.class
+online/sis_ucb/meetings_service/model/ZoomTokenResponse.class
