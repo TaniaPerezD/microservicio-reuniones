@@ -29,7 +29,7 @@ Este microservicio, desarrollado con **Spring Boot**, permite gestionar reunione
 
 ---
 
-## 📦 Instalación
+## Instalación
 
 ```bash
 # Clonar el repositorio
