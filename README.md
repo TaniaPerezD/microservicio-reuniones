@@ -28,7 +28,26 @@ Este microservicio, desarrollado con **Spring Boot**, permite gestionar reunione
 
 
 ---
+## Estructura del proyecto
+```
+src/main/java/online/sis_ucb/meetings_service/
+├── config/
+│   └── AppConfig.java                 → Configuración general del proyecto.
+├── controller/
+│   └── MeetingController.java        → Define los endpoints REST relacionados con reuniones Zoom.
+├── model/
+│   ├── Meeting.java                  → Modelo base de una reunión Zoom.
+│   ├── MeetingInvitee.java           → Modelo para representar invitados a reuniones.
+│   ├── MeetingListResponse.java      → Objeto de respuesta para listar reuniones.
+│   └── ZoomTokenResponse.java        → Modelo para manejar la respuesta de tokens OAuth.
+├── oauth/
+│   └── ZoomOAuthService.java         → Lógica de autenticación OAuth2 con Zoom.
+├── service/
+│   └── ZoomMeetingService.java       → Contiene la lógica de negocio para crear y listar reuniones.
+└── MeetingsServiceApplication.java   → Clase principal para ejecutar la aplicación.
+```
 
+---
 ## Instalación
 
 ```bash
