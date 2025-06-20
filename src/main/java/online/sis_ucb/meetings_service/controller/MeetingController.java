@@ -52,6 +52,7 @@ public class MeetingController {
                 meeting.setType(2); // Tipo 2 = Reunión agendada
             }
             
+            // Nota: userId debe ser un correo de un usuario registrado en tu cuenta Zoom si estás usando Server-to-Server OAuth.
             logger.info("Creating scheduled meeting with start time: {}", meeting.getStartTime());
             Meeting createdMeeting = zoomMeetingService.createMeeting(userId, meeting);
             return new ResponseEntity<>(createdMeeting, HttpStatus.CREATED);
