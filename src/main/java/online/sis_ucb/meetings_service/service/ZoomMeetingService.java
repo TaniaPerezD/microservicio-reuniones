@@ -44,17 +44,9 @@ public class ZoomMeetingService {
         if (meeting.getType() == null) {
             meeting.setType(2);
         }
+
+
         
-        // // para depuración - ver el valor de startTime antes de enviarlo
-        if (meeting.getStartTime() != null) {
-            //ger.info("StartTime antes de enviar a Zoom: {}", meeting.getStartTime());
-            
-            // Asegúrate de que la hora esté en formato ISO
-            String formattedTime = meeting.getStartTime().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
-            //ger.info("StartTime formateado: {}", formattedTime);
-        } else {
-            //ger.warn("StartTime es null, la reunión se creará para la hora actual");
-        }
 
         HttpEntity<Meeting> request = new HttpEntity<>(meeting, headers);
 

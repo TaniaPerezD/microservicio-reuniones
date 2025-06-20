@@ -18,7 +18,10 @@ public class Meeting {
     private Integer type;
 
     @JsonProperty("start_time")
-    private ZonedDateTime startTime; // Hora de inicio en formato ISO 8601 con zona horaria
+    private String startTime; // Hora de inicio en formato ISO 8601 con zona horaria
+
+    @JsonProperty("start_time_zoned")
+    private ZonedDateTime startTimeZoned; // Hora de inicio como ZonedDateTime (opcional)
 
     private Integer duration; // Duración en minutos
 
@@ -54,7 +57,7 @@ public class Meeting {
     }
 
     // --- Constructor con campos comunes para crear una reunión agendada ---
-    public Meeting(String topic, ZonedDateTime startTime, Integer duration, String timezone, String scheduleFor) {
+    public Meeting(String topic, String startTime, Integer duration, String timezone, String scheduleFor) {
         this.topic = topic;
         this.type = 2; // Por defecto a agendada
         this.startTime = startTime;
@@ -81,11 +84,11 @@ public class Meeting {
         this.type = type;
     }
 
-    public ZonedDateTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(ZonedDateTime startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
@@ -143,6 +146,13 @@ public class Meeting {
 
     public void setSettings(Map<String, Object> settings) {
         this.settings = settings;
+    }
+
+    public ZonedDateTime getStartTimeZoned() {
+        return startTimeZoned;
+    }
+    public void setStartTimeZoned(ZonedDateTime startTimeZoned) {
+        this.startTimeZoned = startTimeZoned;
     }
 
     // --- Getters y Setters para campos de respuesta (si usas la misma clase) ---

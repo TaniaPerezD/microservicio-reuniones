@@ -30,18 +30,21 @@ public class MeetingController {
         logger.info("Received request to create meeting for user: {}", userId);
         
         try {
+            //parse the start_time(string with format: yyyy-mm-dd hh:mm:ssTZ) to ZonedDateTime
+            meeting.setStartTimeZoned(ZonedDateTime.parse(meeting.getStartTime()));
+
             // Validar que la reunión tenga una fecha de inicio programada
-            if (meeting.getStartTime() == null) {
+            if (meeting.getStartTimeZoned() == null) {
                 logger.warn("Start time is missing, setting default to future time");
                 // Si no se proporciona startTime, establecer por defecto a 1 hora en el futuro
-                meeting.setStartTime(ZonedDateTime.now().plusHours(1));
+                meeting.setStartTimeZoned(ZonedDateTime.now().plusHours(1));
             }
             
             // Validar que la fecha es futura
-            if (meeting.getStartTime().isBefore(ZonedDateTime.now())) {
+            if (meeting.getStartTimeZoned().isBefore(ZonedDateTime.now())) {
                 logger.warn("Start time is in the past: {}, adjusting to future time", meeting.getStartTime());
                 // Si la fecha es en el pasado, ajustar a 1 hora en el futuro
-                meeting.setStartTime(ZonedDateTime.now().plusHours(1));
+                meeting.setStartTimeZoned(ZonedDateTime.now().plusHours(1));
             }
             
             // Asegúrate de que el tipo es para reunión agendada (tipo 2)
